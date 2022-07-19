@@ -1,12 +1,26 @@
 using shouldISkateToday.Infra;
-using shouldISkateToday.Services;
-using shouldISkateToday.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddEndpointsApiExplorer();
 builder.Services.RegisterDependencies(builder.Configuration);
+// builder.Services.AddSwaggerConfig("ProfimetricsPlatformApi",
+//     "Profimetrics manage platform");
+// app.UseSwagger();
+// app.UseSwaggerUI(c =>
+// {
+//     c.SwaggerEndpoint("/swagger/v1/swagger.json", "ProfimetricsPlatformApi v1");
+// });
 
 var app = builder.Build();
-app.UseRouting();
-app.MapGet("/github/{user}", async (string user,IGithubService service) => await service.GetUserById(user));
 
+if (app.Environment.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage();
+}
+
+app.MapControllers();
+app.UseCors(b => b
+    .AllowAnyOrigin()
+    .AllowAnyMethod()
+    .AllowAnyHeader());
 app.Run();

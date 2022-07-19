@@ -11,9 +11,16 @@ public static class DependencyContainer
         IConfiguration configuration)
     {
         services.AddTransient<IGithubService, GithubService>();
+        services.AddControllers();
+        services.AddEndpointsApiExplorer();
+        services.AddMvc().AddJsonOptions(options =>
+        {
+            options.JsonSerializerOptions.IncludeFields = true;
+        });
         services.AddRefitClient<IGithubRequests>().ConfigureHttpClient(c =>
         {
             c.BaseAddress = new Uri(configuration.GetValue<string>("GIT_HUB_API_URL"));
+            
         });
         // services.AddRefitClient<IGithubRequests>().ConfigureHttpClient(c =>
         // {

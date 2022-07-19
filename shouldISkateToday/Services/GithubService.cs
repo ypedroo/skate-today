@@ -1,4 +1,7 @@
-﻿using shouldISkateToday.Clients.HttpResponse;
+﻿using System.Text.Json;
+using LanguageExt.Common;
+using Refit;
+using shouldISkateToday.Clients.HttpResponse;
 using shouldISkateToday.Clients.RequestInterface;
 using shouldISkateToday.Services.Interfaces;
 
@@ -12,18 +15,16 @@ public class GithubService : IGithubService
     {
         _request = request;
     }
-    public async Task<GithubResponse> GetUserById(string username)
+
+    public async Task<Result<string>> GetUserById(string username)
     {
         try
         {
-            var response = await _request.GetGitHubProfile();
-
-            return response;
+           return await _request.GetGitHubProfile(username);
         }
-        catch (Exception e)
+        catch (Exception exception)
         {
-            Console.WriteLine(e);
-            throw;
+            return new Result<string>(exception);
         }
     }
 }

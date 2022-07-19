@@ -1,8 +1,8 @@
-﻿using shouldISkateToday.Clients.HttpResponse;
+﻿using LanguageExt.Common;
 
 namespace shouldISkateToday.Services.Interfaces;
 
 public interface IGithubService
 {
-    Task<GithubResponse> GetUserById(string username);
+    Task<Result<string>>GetUserById(string username);
 }
