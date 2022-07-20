@@ -31,13 +31,7 @@ Y
 )frontend/shouldISkateToday/vite.config.ts,8\2\822bbb32d4d2b21fb741ba69e506ee363e067ce7
 U
 %frontend/shouldISkateToday/.gitignore,3\3\33bfd81a0571c1daec4ae084eeab2b57d2d55d24
-E
-shouldISkateToday.sln,4\a\4ad469b902a7d8163a3ce263cd7af14e093fcd39
 U
 %shouldISkateToday/Infra/Properties.cs,e\b\eb2f9f27eb304901b6e11eb13264cf30050df16c
 ^
 .shouldISkateToday/Services/SkateParkService.cs,c\b\cb1f7cf22feb043977e13d46708fa7605f3b5e60
-Z
-*shouldISkateToday/shouldISkateToday.csproj,2\0\2055d55d534fa6700a6c32b4b55ddfd2f76701fc
-L
-shouldISkateToday/Program.cs,4\5\45ca074c35aea04102c976f01e5d1675ad03de1a

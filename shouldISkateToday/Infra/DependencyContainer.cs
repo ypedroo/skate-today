@@ -1,4 +1,5 @@
-﻿using Refit;
+﻿using Microsoft.OpenApi.Models;
+using Refit;
 using shouldISkateToday.Clients.RequestInterface;
 using shouldISkateToday.Services;
 using shouldISkateToday.Services.Interfaces;
@@ -18,6 +19,30 @@ public static class DependencyContainer
         {
             c.BaseAddress = new Uri(configuration.GetValue<string>("GOOGLE_MAPS_PLACE_URL"));
         });
+        return services;
+    }
+    
+    public static IServiceCollection AddSwaggerConfig(this IServiceCollection services, string title,
+        string description)
+    {
+        services.AddSwaggerGen(c =>
+        {
+            const string url = "https://localhost:7252/swagger/v1/swagger.json";
+            c.SwaggerDoc("v1",
+                new OpenApiInfo
+                {
+                    Title = title,
+                    Version = "v1",
+                    Description = description,
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Ynoa Pedro",
+                        Email = "ynoa.pedro@outlook.com",
+                        Url = new Uri(url)
+                    }
+                });
+        });
+
         return services;
     }
 }

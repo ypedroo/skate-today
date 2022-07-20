@@ -8,6 +8,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{8EB15CB0-63A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "shouldISkateToday", "shouldISkateToday\shouldISkateToday.csproj", "{513CB786-5175-4803-9473-31BB83DD2418}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "shouldISkateTodayTests", "shouldISkateTodayTests\shouldISkateTodayTests.csproj", "{2FA283C5-B8D4-4E76-BDAF-9F34BBA47DED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,11 +19,16 @@ Global
 		{03D49A6A-B874-4377-9DA7-431B8B52AE59} = {8EB15CB0-63A3-4A82-BA07-487AE774B26C}
 		{0A5887DC-6CC0-4F1A-9499-DA167C9FCE5C} = {8EB15CB0-63A3-4A82-BA07-487AE774B26C}
 		{513CB786-5175-4803-9473-31BB83DD2418} = {0A5887DC-6CC0-4F1A-9499-DA167C9FCE5C}
+		{2FA283C5-B8D4-4E76-BDAF-9F34BBA47DED} = {03D49A6A-B874-4377-9DA7-431B8B52AE59}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{513CB786-5175-4803-9473-31BB83DD2418}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{513CB786-5175-4803-9473-31BB83DD2418}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{513CB786-5175-4803-9473-31BB83DD2418}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{513CB786-5175-4803-9473-31BB83DD2418}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FA283C5-B8D4-4E76-BDAF-9F34BBA47DED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FA283C5-B8D4-4E76-BDAF-9F34BBA47DED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FA283C5-B8D4-4E76-BDAF-9F34BBA47DED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FA283C5-B8D4-4E76-BDAF-9F34BBA47DED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
