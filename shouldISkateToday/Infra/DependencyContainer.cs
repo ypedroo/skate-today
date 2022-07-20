@@ -10,22 +10,14 @@ public static class DependencyContainer
     public static IServiceCollection RegisterDependencies(this IServiceCollection services,
         IConfiguration configuration)
     {
-        services.AddTransient<IGithubService, GithubService>();
+        services.AddTransient<IGoogleMapService, GoogleMapService>();
         services.AddControllers();
         services.AddEndpointsApiExplorer();
-        services.AddMvc().AddJsonOptions(options =>
+        services.AddMvc().AddJsonOptions(options => { options.JsonSerializerOptions.IncludeFields = true; });
+        services.AddRefitClient<IGoogleMapsRequests>().ConfigureHttpClient(c =>
         {
-            options.JsonSerializerOptions.IncludeFields = true;
+            c.BaseAddress = new Uri(configuration.GetValue<string>("GOOGLE_MAPS_PLACE_URL"));
         });
-        services.AddRefitClient<IGithubRequests>().ConfigureHttpClient(c =>
-        {
-            c.BaseAddress = new Uri(configuration.GetValue<string>("GIT_HUB_API_URL"));
-            
-        });
-        // services.AddRefitClient<IGithubRequests>().ConfigureHttpClient(c =>
-        // {
-        //     c.BaseAddress = new Uri(configuration.GetValue<string>("STORM_GLASS_URL"));
-        // });
         return services;
     }
 }
