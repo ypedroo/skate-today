@@ -1,8 +1,6 @@
 
 `
 0shouldISkateToday/Properties/launchSettings.json,6\6\663b6191f8fe5611f5d79107a282b51d1c3da3ad
-^
-.shouldISkateToday/appsettings.Development.json,a\9\a997d0625b5368e8058ef4c040ebd7bd89667b10
 W
 'frontend/shouldISkateToday/src/logo.svg,2\c\2ceed394f860853cd132ce7c1b9266477fa8bfbe
 W
@@ -33,5 +31,9 @@ U
 %frontend/shouldISkateToday/.gitignore,3\3\33bfd81a0571c1daec4ae084eeab2b57d2d55d24
 U
 %shouldISkateToday/Infra/Properties.cs,e\b\eb2f9f27eb304901b6e11eb13264cf30050df16c
-^
-.shouldISkateToday/Services/SkateParkService.cs,c\b\cb1f7cf22feb043977e13d46708fa7605f3b5e60
+]
+-shouldISkateToday/Domain/Models/SkateParks.cs,f\5\f53ad9822abdfa580f9da791607b0b04bbe377a0
+[
++shouldISkateToday/Domain/Models/Location.cs,d\1\d12b9dba34b2decbbf7fd5a592c64bf9ac0010b0
+E
+shouldISkateToday.sln,4\a\4ad469b902a7d8163a3ce263cd7af14e093fcd39

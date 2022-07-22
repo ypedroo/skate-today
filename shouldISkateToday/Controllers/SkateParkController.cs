@@ -16,7 +16,7 @@ public class SkateParkController : ControllerBase
     }
 
     [HttpGet("skate-parks")]
-    public async Task<IActionResult> GetGithubUser([FromQuery] string spot)
+    public async Task<IActionResult> GetGithubUser(string? spot = "")
     {
         var result = await _service.GetSkateParks(spot);
         return result.ToOk(response => response);

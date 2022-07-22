@@ -5,5 +5,5 @@ namespace shouldISkateToday.Services.Interfaces;
 
 public interface IGoogleMapService
 {
-    Task<Result<SkateParks>> GetSkateParks(string spot);
+    Task<Result<SkateParks>> GetSkateParks(string? spot);
 }

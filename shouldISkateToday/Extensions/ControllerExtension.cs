@@ -13,6 +13,14 @@ public static class ControllerExtension
         {
             var response = contract(obj);
             return new OkObjectResult(response);
-        }, exception => exception is ApiException ? new StatusCodeResult(403) : new StatusCodeResult(500));
+        }, exception =>
+        {
+            return exception switch
+            {
+                ApiException => new StatusCodeResult(403),
+                BadHttpRequestException => new StatusCodeResult(422),
+                _ => new StatusCodeResult(500)
+            };
+        });
     }
 }
