@@ -37,3 +37,27 @@ U
 +shouldISkateToday/Domain/Models/Location.cs,d\1\d12b9dba34b2decbbf7fd5a592c64bf9ac0010b0
 E
 shouldISkateToday.sln,4\a\4ad469b902a7d8163a3ce263cd7af14e093fcd39
+\
+,shouldISkateToday/Domain/Models/SkatePark.cs,b\7\b772fb6d445f38a2e4a2ffff21267f6551de1f20
+[
++shouldISkateToday/Domain/Models/Geometry.cs,e\6\e6cc9bae2055136fb2a9ccdb03c6080ef8938b99
+W
+'shouldISkateTodayTests/appsettings.json,3\e\3e77140202ab82c6a566b1acbb5b6c14a2ec7458
+q
+AshouldISkateToday/Clients/RequestInterface/IGoogleMapsRequests.cs,1\2\12d5bd6cb06c4c7ac6b735985ae6bf955f0881bf
+j
+:shouldISkateToday/Services/Interfaces/IGoogleMapService.cs,d\7\d7610fcbc73d9ba2b880a77e7e189fed3f041b0a
+c
+3shouldISkateToday/Extensions/ControllerExtension.cs,1\9\19a678b75c0ff8d7f0f2a2ed3475ef07149aa1ff
+O
+shouldISkateToday/.dockerignore,4\3\4324648401de80a1ce64b845edecd7e0cc31bd35
+L
+shouldISkateToday/Dockerfile,d\2\d24f3049f69d1eb39969438a35997b4baa0d1ebc
+_
+/shouldISkateToday/Domain/Models/UserRegister.cs,5\e\5e22cc0394e244891a8501b971703f699c6c3fdf
+d
+4shouldISkateTodayTests/shouldISkateTodayTests.csproj,f\3\f3956d722ce03bde4b6712369c2cfa41350053dd
+P
+ shouldISkateTodayTests/Usings.cs,9\8\9804d6bf61eaec409af1a06bd6d0845719518745
+X
+(shouldISkateToday/Domain/Dtos/UserDto.cs,f\0\f03de5662133a9a0bfe0ca94f5eb3059a65c8e70

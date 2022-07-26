@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using shouldISkateToday.Extensions;
 using shouldISkateToday.Services.Interfaces;
 
 namespace shouldISkateToday.Controllers;
 
 [ApiController]
+[Authorize]
 [Route("api/[controller]")]
 public class SkateParkController : ControllerBase
 {

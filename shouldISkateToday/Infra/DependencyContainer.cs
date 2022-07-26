@@ -1,6 +1,10 @@
-﻿using Microsoft.OpenApi.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 using Refit;
 using shouldISkateToday.Clients.RequestInterface;
+using shouldISkateToday.Data.Contexts;
+using shouldISkateToday.Data.Repositories;
+using shouldISkateToday.Data.Repositories.Interfaces;
 using shouldISkateToday.Services;
 using shouldISkateToday.Services.Interfaces;
 
@@ -12,6 +16,7 @@ public static class DependencyContainer
         IConfiguration configuration)
     {
         services.AddTransient<IGoogleMapService, GoogleMapService>();
+        services.AddTransient<IUserRepository, UserRepository>();
         services.AddControllers();
         services.AddEndpointsApiExplorer();
         services.AddMvc().AddJsonOptions(options => { options.JsonSerializerOptions.IncludeFields = true; });
@@ -19,6 +24,10 @@ public static class DependencyContainer
         {
             c.BaseAddress = new Uri(configuration.GetValue<string>("GOOGLE_MAPS_PLACE_URL"));
         });
+        var connectionString = configuration["dbContextSettings:ConnectionString"];  
+        services.AddDbContext<UserContext>(options =>  
+            options.UseNpgsql(connectionString)  
+        );
         return services;
     }
     
