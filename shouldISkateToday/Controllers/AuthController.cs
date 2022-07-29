@@ -45,7 +45,7 @@ public class AuthController : ControllerBase
         {
             return BadRequest("Wrong Password");
         }
-        var token = GenerateToken(validUser);
+        var token = GenerateAdminToken(validUser);
         var refreshToken = GenerateRefreshToken();
         await SetRefreshToken(refreshToken, validUser);
         return VerifyPasswordHash(request.Password, validUser.PasswordHash, validUser.PasswordSalt)
@@ -81,7 +81,7 @@ public class AuthController : ControllerBase
         if (validUser.RefreshTokenExpires < DateTime.Now)
             return Unauthorized("Refresh Token has expired");
 
-        var token = GenerateToken(validUser);
+        var token = GenerateAdminToken(validUser);
         var newRefreshToken = GenerateRefreshToken();
         await SetRefreshToken(newRefreshToken, validUser);
 
@@ -116,11 +116,12 @@ public class AuthController : ControllerBase
     }
 
     // TODO - add control error handling here
-    private string GenerateToken(User user)
+    private string GenerateAdminToken(User user)
     {
         var claims = new List<Claim>
         {
             new(ClaimTypes.Name, user.UserName),
+            new(ClaimTypes.Role, "Admin"),
         };
         var key = new SymmetricSecurityKey(
             Encoding.UTF8.GetBytes(_configuration.GetSection("AppSettings:Token").Value));
@@ -142,8 +143,8 @@ public class AuthController : ControllerBase
 
     private bool VerifyPasswordHash(string requestPassword, byte[] userPasswordHash, byte[] userPasswordSalt)
     {
-        using var hmac = new System.Security.Cryptography.HMACSHA512(userPasswordSalt);
-        var computedHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(requestPassword));
+        using var hmac = new HMACSHA512(userPasswordSalt);
+        var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(requestPassword));
         return computedHash.SequenceEqual(userPasswordHash);
     }
 

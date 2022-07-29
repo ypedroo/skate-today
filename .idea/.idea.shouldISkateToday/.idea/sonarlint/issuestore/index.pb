@@ -53,11 +53,19 @@ O
 shouldISkateToday/.dockerignore,4\3\4324648401de80a1ce64b845edecd7e0cc31bd35
 L
 shouldISkateToday/Dockerfile,d\2\d24f3049f69d1eb39969438a35997b4baa0d1ebc
-_
-/shouldISkateToday/Domain/Models/UserRegister.cs,5\e\5e22cc0394e244891a8501b971703f699c6c3fdf
 d
 4shouldISkateTodayTests/shouldISkateTodayTests.csproj,f\3\f3956d722ce03bde4b6712369c2cfa41350053dd
 P
  shouldISkateTodayTests/Usings.cs,9\8\9804d6bf61eaec409af1a06bd6d0845719518745
 X
 (shouldISkateToday/Domain/Dtos/UserDto.cs,f\0\f03de5662133a9a0bfe0ca94f5eb3059a65c8e70
+R
+"shouldISkateToday/appsettings.json,1\1\11cbeeb62894944e562ccb9329ea71eed5610fb5
+^
+.shouldISkateToday/appsettings.Development.json,a\9\a997d0625b5368e8058ef4c040ebd7bd89667b10
+W
+'shouldISkateToday/Domain/Models/User.cs,0\c\0c39b6a704e7ceef323074dff8da734af7c45fa2
+Q
+!shouldISkateToday/RefreshToken.cs,9\6\96405e448cb4954653e8c79d6c71bd14efce5e30
+^
+.shouldISkateToday/Data/Contexts/UserContext.cs,5\b\5baff07104819dd07bd0978ffa2d8791e13a52e0
