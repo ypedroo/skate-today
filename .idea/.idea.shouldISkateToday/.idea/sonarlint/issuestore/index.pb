@@ -29,8 +29,6 @@ Y
 )frontend/shouldISkateToday/vite.config.ts,8\2\822bbb32d4d2b21fb741ba69e506ee363e067ce7
 U
 %frontend/shouldISkateToday/.gitignore,3\3\33bfd81a0571c1daec4ae084eeab2b57d2d55d24
-U
-%shouldISkateToday/Infra/Properties.cs,e\b\eb2f9f27eb304901b6e11eb13264cf30050df16c
 ]
 -shouldISkateToday/Domain/Models/SkateParks.cs,f\5\f53ad9822abdfa580f9da791607b0b04bbe377a0
 [
@@ -45,10 +43,6 @@ W
 'shouldISkateTodayTests/appsettings.json,3\e\3e77140202ab82c6a566b1acbb5b6c14a2ec7458
 q
 AshouldISkateToday/Clients/RequestInterface/IGoogleMapsRequests.cs,1\2\12d5bd6cb06c4c7ac6b735985ae6bf955f0881bf
-j
-:shouldISkateToday/Services/Interfaces/IGoogleMapService.cs,d\7\d7610fcbc73d9ba2b880a77e7e189fed3f041b0a
-c
-3shouldISkateToday/Extensions/ControllerExtension.cs,1\9\19a678b75c0ff8d7f0f2a2ed3475ef07149aa1ff
 O
 shouldISkateToday/.dockerignore,4\3\4324648401de80a1ce64b845edecd7e0cc31bd35
 L
@@ -59,8 +53,6 @@ P
  shouldISkateTodayTests/Usings.cs,9\8\9804d6bf61eaec409af1a06bd6d0845719518745
 X
 (shouldISkateToday/Domain/Dtos/UserDto.cs,f\0\f03de5662133a9a0bfe0ca94f5eb3059a65c8e70
-R
-"shouldISkateToday/appsettings.json,1\1\11cbeeb62894944e562ccb9329ea71eed5610fb5
 ^
 .shouldISkateToday/appsettings.Development.json,a\9\a997d0625b5368e8058ef4c040ebd7bd89667b10
 W
@@ -69,3 +61,5 @@ Q
 !shouldISkateToday/RefreshToken.cs,9\6\96405e448cb4954653e8c79d6c71bd14efce5e30
 ^
 .shouldISkateToday/Data/Contexts/UserContext.cs,5\b\5baff07104819dd07bd0978ffa2d8791e13a52e0
+j
+:shouldISkateToday/Services/Interfaces/IGoogleMapService.cs,d\7\d7610fcbc73d9ba2b880a77e7e189fed3f041b0a

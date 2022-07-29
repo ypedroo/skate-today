@@ -1,12 +1,12 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using System.Security.Cryptography;
 using System.Text;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
-using shouldISkateToday.Data.Repositories.Interfaces;
 using shouldISkateToday.Domain.Dtos;
 using shouldISkateToday.Domain.Models;
+using shouldISkateToday.Extensions;
+using shouldISkateToday.Services.Interfaces;
 
 namespace shouldISkateToday.Controllers;
 
@@ -15,24 +15,25 @@ namespace shouldISkateToday.Controllers;
 public class AuthController : ControllerBase
 {
     private readonly IConfiguration _configuration;
-    private readonly IUserRepository _dbContext;
+    private readonly IUserService _service;
 
-    public AuthController(IConfiguration configuration, IUserRepository dbContext)
+
+    public AuthController(IConfiguration configuration, IUserService service)
     {
         _configuration = configuration;
-        _dbContext = dbContext;
+        _service = service;
     }
 
     [HttpPost("register")]
     public async Task<ActionResult<User>> Register(UserDto request)
     {
         var newUser = new User();
-        CreatePasswordHash(request.Password, out byte[] passwordHash, out byte[] passwordSalt);
+        JwtExtensions.CreatePasswordHash(request.Password, out byte[] passwordHash, out byte[] passwordSalt);
         newUser.UserName = request.Username;
         newUser.PasswordHash = passwordHash;
         newUser.PasswordSalt = passwordSalt;
 
-        var user = await _dbContext.AddUser(newUser);
+        var user = await _service.AddUser(newUser);
 
         return Ok(user);
     }
@@ -40,40 +41,25 @@ public class AuthController : ControllerBase
     [HttpPost("login")]
     public async Task<ActionResult<string>> Login(UserDto request)
     {
-        var validUser = await GetUser(request);
+        var validUser = await _service.GetUser(request);
         if (string.IsNullOrEmpty(validUser.UserName))
         {
             return BadRequest("Wrong Password");
         }
+
         var token = GenerateAdminToken(validUser);
-        var refreshToken = GenerateRefreshToken();
+        var refreshToken = JwtExtensions.GenerateRefreshToken();
         await SetRefreshToken(refreshToken, validUser);
-        return VerifyPasswordHash(request.Password, validUser.PasswordHash, validUser.PasswordSalt)
+        return JwtExtensions.VerifyPasswordHash(request.Password, validUser.PasswordHash, validUser.PasswordSalt)
             ? Ok(token)
             : BadRequest("Wrong Password");
     }
 
-    private async Task<User> GetUser(UserDto request)
-    {
-        var user = await _dbContext.GetUser(request.Username);
-        var validUser = new User();
-        user.IfSucc(userFound =>
-        {
-            validUser.Id = userFound.Id;
-            validUser.UserName = userFound.UserName;
-            validUser.PasswordHash = userFound.PasswordHash;
-            validUser.PasswordSalt = userFound.PasswordSalt;
-            validUser.RefreshToken = userFound.RefreshToken;
-            validUser.RefreshTokenCreated = userFound.RefreshTokenCreated;
-            validUser.RefreshTokenExpires = userFound.RefreshTokenExpires;
-        });
-        return validUser;
-    }
 
     [HttpPost("refresh-token")]
     public async Task<ActionResult<string>> RefreshToken(UserDto request)
     {
-        var validUser = await GetUser(request);
+        var validUser = await _service.GetUser(request);
         var refreshToken = Request.Cookies["refreshToken"];
         if (!validUser.RefreshToken.Equals(refreshToken))
             return Unauthorized("Refresh Token is invalid");
@@ -82,7 +68,7 @@ public class AuthController : ControllerBase
             return Unauthorized("Refresh Token has expired");
 
         var token = GenerateAdminToken(validUser);
-        var newRefreshToken = GenerateRefreshToken();
+        var newRefreshToken = JwtExtensions.GenerateRefreshToken();
         await SetRefreshToken(newRefreshToken, validUser);
 
         return Ok(token);
@@ -100,22 +86,10 @@ public class AuthController : ControllerBase
         validUser.RefreshToken = refreshToken.Token;
         validUser.RefreshTokenCreated = refreshToken.Created;
         validUser.RefreshTokenExpires = refreshToken.Expires;
-        
-        await _dbContext.UpdateUserRefreshTokenUpdateUserRefreshToken(validUser);
+
+        await _service.UpdateUserRefreshTokenUpdateUserRefreshToken(validUser);
     }
 
-    private RefreshToken GenerateRefreshToken()
-    {
-        var refreshToken = new RefreshToken
-        {
-            Token = Convert.ToBase64String(RandomNumberGenerator.GetBytes(64)),
-            Expires = DateTime.UtcNow.AddDays(7),
-            Created = DateTime.UtcNow
-        };
-        return refreshToken;
-    }
-
-    // TODO - add control error handling here
     private string GenerateAdminToken(User user)
     {
         var claims = new List<Claim>
@@ -139,22 +113,5 @@ public class AuthController : ControllerBase
         var jwt = new JwtSecurityTokenHandler().WriteToken(token);
 
         return jwt;
-    }
-
-    private bool VerifyPasswordHash(string requestPassword, byte[] userPasswordHash, byte[] userPasswordSalt)
-    {
-        using var hmac = new HMACSHA512(userPasswordSalt);
-        var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(requestPassword));
-        return computedHash.SequenceEqual(userPasswordHash);
-    }
-
-
-    // TODO - implement hashing logic in a different class
-    // TODO - Apply validators to the new password and username
-    private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
-    {
-        using var hmac = new System.Security.Cryptography.HMACSHA512();
-        passwordSalt = hmac.Key;
-        passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
     }
 }
