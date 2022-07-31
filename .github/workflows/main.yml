@@ -34,22 +34,3 @@ jobs:
 
       - name: Test
         run: dotnet test -c Release --no-build --verbosity normal --filter "Category!=LongRunning" 
-  deploy:
-    name: Deploy to Heroku
-    runs-on: ubuntu-latest
-    needs: [build]
-    steps:
-      
-      # Clone the repository
-      - name: Checkout
-        uses: actions/checkout@v2
-      
-      # Build Docker image
-      - name: Docker build
-        run: docker login --username=ynoa.pedro@outlook.com --password=$HEROKU_API_KEY registry.heroku.com
-      
-      # Push the Docker image to Heroku Container Registry
-      - name: Publish
-        run: |
-          heroku container:push web -a $APP_NAME
-          heroku container:release web -a $APP_NAME
