@@ -12,6 +12,7 @@ public class UserContext : DbContext
     }
     // Entities        
     public DbSet<User> Users { get; set; }
+    public DbSet<UserFavorites> UserFavorites { get; set; }
     
     // Entity Configurations
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -28,6 +29,15 @@ public class UserContext : DbContext
 
 
             entity.ToTable("Users");
+        });
+        
+        modelBuilder.Entity<UserFavorites>(entity =>
+        {
+            entity.Property(e => e.UserId).IsRequired();
+            entity.Property(e => e.Favorites).IsRequired();
+
+
+            entity.ToTable("UsersFavorites");
         });
     }
 }

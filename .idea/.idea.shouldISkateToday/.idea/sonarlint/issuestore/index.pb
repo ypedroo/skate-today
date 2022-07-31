@@ -41,12 +41,8 @@ E
 +shouldISkateToday/Domain/Models/Geometry.cs,e\6\e6cc9bae2055136fb2a9ccdb03c6080ef8938b99
 W
 'shouldISkateTodayTests/appsettings.json,3\e\3e77140202ab82c6a566b1acbb5b6c14a2ec7458
-q
-AshouldISkateToday/Clients/RequestInterface/IGoogleMapsRequests.cs,1\2\12d5bd6cb06c4c7ac6b735985ae6bf955f0881bf
 O
 shouldISkateToday/.dockerignore,4\3\4324648401de80a1ce64b845edecd7e0cc31bd35
-L
-shouldISkateToday/Dockerfile,d\2\d24f3049f69d1eb39969438a35997b4baa0d1ebc
 d
 4shouldISkateTodayTests/shouldISkateTodayTests.csproj,f\3\f3956d722ce03bde4b6712369c2cfa41350053dd
 P
@@ -55,11 +51,5 @@ X
 (shouldISkateToday/Domain/Dtos/UserDto.cs,f\0\f03de5662133a9a0bfe0ca94f5eb3059a65c8e70
 ^
 .shouldISkateToday/appsettings.Development.json,a\9\a997d0625b5368e8058ef4c040ebd7bd89667b10
-W
-'shouldISkateToday/Domain/Models/User.cs,0\c\0c39b6a704e7ceef323074dff8da734af7c45fa2
-Q
-!shouldISkateToday/RefreshToken.cs,9\6\96405e448cb4954653e8c79d6c71bd14efce5e30
-^
-.shouldISkateToday/Data/Contexts/UserContext.cs,5\b\5baff07104819dd07bd0978ffa2d8791e13a52e0
 j
 :shouldISkateToday/Services/Interfaces/IGoogleMapService.cs,d\7\d7610fcbc73d9ba2b880a77e7e189fed3f041b0a
