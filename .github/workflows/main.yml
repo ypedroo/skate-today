@@ -50,5 +50,5 @@ jobs:
       # Push the Docker image to Heroku Container Registry
       - name: Publish
         run: |
-          heroku container:push web -a $APP_NAME
-          heroku container:release web -a $APP_NAME
+          heroku container:push skate-today -a $APP_NAME
+          heroku container:release skate-today -a $APP_NAME
