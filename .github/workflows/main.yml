@@ -46,6 +46,6 @@ jobs:
       # Build and Push the Docker image to Heroku Container Registry
       - name: Publish
         run: |
-          docker login --username=_ --password=$Heroku_API_KEY registry.Heroku.com
+          docker login --username=_ --password=$HEROKU_API_KEY registry.Heroku.com
           Heroku container:push web -a $APP_NAME
           Heroku container:release web -a $APP_NAME
