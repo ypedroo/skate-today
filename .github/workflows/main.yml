@@ -46,7 +46,7 @@ jobs:
       
       # Build Docker image
       - name: Docker build
-        run: docker login --username=ynoa_pedro --password=$HEROKU_API_KEY registry.heroku.com
+        run: docker login --username=ynoa.pedro@outlook.com --password=$HEROKU_API_KEY registry.heroku.com
       
       # Push the Docker image to Heroku Container Registry
       - name: Publish
