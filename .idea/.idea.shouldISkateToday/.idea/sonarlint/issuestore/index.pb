@@ -71,8 +71,6 @@ Y
 )shouldISkateToday/Services/UserService.cs,5\a\5a8c4e6f5c589b9408d0a1025bd868a9c036bc8a
 q
 AshouldISkateToday/Data/Repositories/Interfaces/IUserRepository.cs,5\f\5fb1454ab603cdb81be57eaf0b77e244cbc5653d
-`
-0shouldISkateTodayTests/GoogleMapsRequestTests.cs,a\b\abe3c8032ff159fc7e941d48b5aa338a81a10ff7
 W
 'shouldISkateToday/Domain/Models/User.cs,0\c\0c39b6a704e7ceef323074dff8da734af7c45fa2
 _
