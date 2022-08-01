@@ -57,8 +57,6 @@ L
 shouldISkateToday/Program.cs,4\5\45ca074c35aea04102c976f01e5d1675ad03de1a
 c
 3shouldISkateToday/Extensions/ControllerExtension.cs,1\9\19a678b75c0ff8d7f0f2a2ed3475ef07149aa1ff
-]
--shouldISkateToday/Extensions/JwtExtensions.cs,b\9\b94ab2a5a9d152a335f12ab36f723c831417f1ba
 e
 5shouldISkateToday/Services/Interfaces/IUserService.cs,5\6\561eb7a89bb75fb4a1b3996f4e804b7e6fa46646
 Z

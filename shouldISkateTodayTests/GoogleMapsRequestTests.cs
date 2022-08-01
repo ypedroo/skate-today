@@ -15,10 +15,6 @@ public class GoogleMapsRequestsTests
     public GoogleMapsRequestsTests()
     {
         _requestMock = new Mock<IGoogleMapsRequests>();
-        IConfiguration configuration = new ConfigurationBuilder()
-            .SetBasePath(Directory.GetCurrentDirectory())
-            .AddJsonFile("appsettings.json")
-            .Build();
         _sut = new GoogleMapService(_requestMock.Object);
     }
 
