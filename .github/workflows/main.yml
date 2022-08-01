@@ -9,7 +9,7 @@ on:
 #set environment variables 
 env:
   HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-  APP_NAME: ${{ 'should-i-skate-today' }}
+  APP_NAME: ${{ 'shouldISkateToday' }}
 
 jobs:
   build:
@@ -46,7 +46,6 @@ jobs:
       # Push the Docker image to Heroku Container Registry
       - name: Publish
         run: |
-          cd./shouldISkateToday
           docker login --username=_ --password=$HEROKU_API_KEY registry.heroku.com
           heroku container:push web -a $APP_NAME
           heroku container:release web -a $APP_NAME
