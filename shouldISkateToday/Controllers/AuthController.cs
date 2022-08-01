@@ -98,7 +98,7 @@ public class AuthController : ControllerBase
             new(ClaimTypes.Role, "Admin"),
         };
         var key = new SymmetricSecurityKey(
-            Encoding.UTF8.GetBytes(Environment.GetEnvironmentVariable("TOKEN") ?? string.Empty));
+            Encoding.UTF8.GetBytes(_configuration.GetSection("AppSettings:Token").Value));
 
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
 

@@ -12,10 +12,10 @@ public class GoogleMapService : IGoogleMapService
     private readonly string? _apiKey;
     private readonly IGoogleMapsRequests _request;
 
-    public GoogleMapService(IGoogleMapsRequests request)
+    public GoogleMapService(IGoogleMapsRequests request, IConfiguration configuration)
     {
         _request = request;
-        _apiKey = GetEnvironmentVariable("GOOGLE_MAPS_API_KEY");
+        _apiKey = configuration.GetValue<string>("GOOGLE_MAPS_API_KEY") ?? string.Empty;
     }
 
     public async Task<Result<SkateParks>> GetSkateParks(string? spot)

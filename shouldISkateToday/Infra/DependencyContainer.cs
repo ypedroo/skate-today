@@ -25,11 +25,11 @@ public static class DependencyContainer
         services.AddMvc().AddJsonOptions(options => { options.JsonSerializerOptions.IncludeFields = true; });
         services.AddRefitClient<IGoogleMapsRequests>().ConfigureHttpClient(c =>
         {
-            c.BaseAddress = new Uri(Environment.GetEnvironmentVariable("GOOGLE_MAPS_PLACE_URL") ?? string.Empty);
+            c.BaseAddress = new Uri(configuration.GetValue<string>("GOOGLE_MAPS_PLACE_URL"));
         });
-        var connectionString = Environment.GetEnvironmentVariable("dbContextSettings:ConnectionString");
+        var connectionString = configuration["dbContextSettings:ConnectionString"];
         services.AddDbContext<UserContext>(options =>
-            options.UseNpgsql(connectionString ?? string.Empty)
+            options.UseNpgsql(connectionString)
         );
         return services;
     }
