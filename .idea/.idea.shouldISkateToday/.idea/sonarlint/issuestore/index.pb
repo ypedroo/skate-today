@@ -53,8 +53,6 @@ X
 .shouldISkateToday/appsettings.Development.json,a\9\a997d0625b5368e8058ef4c040ebd7bd89667b10
 j
 :shouldISkateToday/Services/Interfaces/IGoogleMapService.cs,d\7\d7610fcbc73d9ba2b880a77e7e189fed3f041b0a
-R
-"shouldISkateToday/appsettings.json,1\1\11cbeeb62894944e562ccb9329ea71eed5610fb5
 L
 shouldISkateToday/Program.cs,4\5\45ca074c35aea04102c976f01e5d1675ad03de1a
 c
@@ -65,16 +63,12 @@ e
 5shouldISkateToday/Services/Interfaces/IUserService.cs,5\6\561eb7a89bb75fb4a1b3996f4e804b7e6fa46646
 Z
 *shouldISkateToday/shouldISkateToday.csproj,2\0\2055d55d534fa6700a6c32b4b55ddfd2f76701fc
-d
-4shouldISkateToday/Controllers/SkateParkController.cs,4\c\4ca56169d75a53610b1d242ea54e3e55ff26b554
 Y
 )shouldISkateToday/Services/UserService.cs,5\a\5a8c4e6f5c589b9408d0a1025bd868a9c036bc8a
 q
 AshouldISkateToday/Data/Repositories/Interfaces/IUserRepository.cs,5\f\5fb1454ab603cdb81be57eaf0b77e244cbc5653d
 W
 'shouldISkateToday/Domain/Models/User.cs,0\c\0c39b6a704e7ceef323074dff8da734af7c45fa2
-_
-/shouldISkateToday/Controllers/AuthController.cs,f\2\f2b0c6b999fb215a0115295fb0498842b36befd4
 Q
 !shouldISkateToday/RefreshToken.cs,9\6\96405e448cb4954653e8c79d6c71bd14efce5e30
 e

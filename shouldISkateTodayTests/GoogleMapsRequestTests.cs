@@ -19,7 +19,7 @@ public class GoogleMapsRequestsTests
             .SetBasePath(Directory.GetCurrentDirectory())
             .AddJsonFile("appsettings.json")
             .Build();
-        _sut = new GoogleMapService(_requestMock.Object, configuration);
+        _sut = new GoogleMapService(_requestMock.Object);
     }
 
     [Fact]

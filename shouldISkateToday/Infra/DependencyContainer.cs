@@ -27,9 +27,9 @@ public static class DependencyContainer
         {
             c.BaseAddress = new Uri(configuration.GetValue<string>("GOOGLE_MAPS_PLACE_URL"));
         });
-        var connectionString = configuration["dbContextSettings:ConnectionString"];
+        var connectionString = Environment.GetEnvironmentVariable("dbContextSettings:ConnectionString");
         services.AddDbContext<UserContext>(options =>
-            options.UseNpgsql(connectionString)
+            options.UseNpgsql(connectionString ?? string.Empty)
         );
         return services;
     }
