@@ -5,7 +5,7 @@ using Refit;
 using shouldISkateToday.Clients.RequestInterface;
 using shouldISkateToday.Services;
 
-namespace shouldISkateTodayTests;
+namespace shouldISkateTodayTests.UnitTest;
 
 public class GoogleMapsRequestsTests
 {
