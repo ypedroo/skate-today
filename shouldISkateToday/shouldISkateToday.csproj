@@ -44,5 +44,8 @@
       <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.4.0" />
       <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.21.0" />
     </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="shouldISkateTodayTests" />
+  </ItemGroup>
 
 </Project>

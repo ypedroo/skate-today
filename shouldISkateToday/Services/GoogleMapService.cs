@@ -3,7 +3,6 @@ using Newtonsoft.Json;
 using shouldISkateToday.Clients.RequestInterface;
 using shouldISkateToday.Domain.Models;
 using shouldISkateToday.Services.Interfaces;
-using static System.Environment;
 
 namespace shouldISkateToday.Services;
 

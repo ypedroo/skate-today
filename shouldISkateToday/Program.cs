@@ -57,3 +57,8 @@ app.UseCors(b => b
     .AllowAnyMethod()
     .AllowAnyHeader());
 app.Run();
+
+public partial class Program
+{
+    // Expose the Program class for use with WebApplicationFactory<T>
+}

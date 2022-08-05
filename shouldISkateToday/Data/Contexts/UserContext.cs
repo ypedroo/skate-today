@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using shouldISkateToday.Domain.Dtos;
 using shouldISkateToday.Domain.Models;
 
 namespace shouldISkateToday.Data.Contexts;

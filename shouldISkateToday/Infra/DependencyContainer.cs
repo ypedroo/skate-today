@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.OpenApi.Models;
 using Refit;
 using shouldISkateToday.Clients.RequestInterface;
 using shouldISkateToday.Data.Contexts;
