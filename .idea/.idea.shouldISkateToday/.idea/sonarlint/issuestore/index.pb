@@ -37,10 +37,6 @@ E
 shouldISkateToday.sln,4\a\4ad469b902a7d8163a3ce263cd7af14e093fcd39
 \
 ,shouldISkateToday/Domain/Models/SkatePark.cs,b\7\b772fb6d445f38a2e4a2ffff21267f6551de1f20
-W
-'shouldISkateTodayTests/appsettings.json,3\e\3e77140202ab82c6a566b1acbb5b6c14a2ec7458
-^
-.shouldISkateToday/appsettings.Development.json,a\9\a997d0625b5368e8058ef4c040ebd7bd89667b10
 c
 3shouldISkateToday/Extensions/ControllerExtension.cs,1\9\19a678b75c0ff8d7f0f2a2ed3475ef07149aa1ff
 e
