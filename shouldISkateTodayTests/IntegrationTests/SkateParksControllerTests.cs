@@ -21,8 +21,6 @@ public class SkateParksControllerTest : IClassFixture<SkateApiFactory>
     [Fact]
     public async Task Get_Returns_All_SkateParks()
     {
-        // await using var db = new UserContext(_factory.Services.GetService(DbContextOptionsBuilder<UserContext>));
-        // await db.Database.MigrateAsync();
         var client = _factory.CreateDefaultClient();
         var userToLogin = new UserDto
         {

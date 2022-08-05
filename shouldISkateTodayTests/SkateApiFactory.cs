@@ -1,6 +1,7 @@
 ﻿using DotNet.Testcontainers.Builders;
 using DotNet.Testcontainers.Configurations;
 using DotNet.Testcontainers.Containers;
+using LanguageExt.Pipes;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.AspNetCore.TestHost;
@@ -27,21 +28,21 @@ public class SkateApiFactory : WebApplicationFactory<Program>, IAsyncLifetime
     {
         builder.ConfigureTestServices(services =>
         {
-            services.BuildServiceProvider();
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = "Test";
                 options.DefaultChallengeScheme = "Test";
             });
-            services.RemoveAll(typeof(DbContext));
-            services.AddDbContext<UserContext>(options => options.UseNpgsql(_dbContainer.ConnectionString));
-            // var serviceProvider = services.BuildServiceProvider();
+            var serviceProvider = services.BuildServiceProvider();
 
-            // using var scope = serviceProvider.CreateScope();
-            // var scopedServices = scope.ServiceProvider;
-            // var context = scopedServices.GetRequiredService<DbContext>();
-            // context.Database.EnsureCreated();
+            using var scope = serviceProvider.CreateScope();
+            var scopedServices = scope.ServiceProvider;
+            var context = scopedServices.GetRequiredService<UserContext>();
+            context.Database.EnsureCreated();
+            context.Database.Migrate();
+            services.BuildServiceProvider();
         });
+        
     }
 
     public async Task InitializeAsync() => await _dbContainer.StartAsync();
