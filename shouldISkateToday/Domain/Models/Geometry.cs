@@ -7,5 +7,5 @@ public class Geometry
         Location = location;
     }
 
-    public Location Location { get; set; }
+    private Location Location { get; set; }
 }

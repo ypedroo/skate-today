@@ -37,8 +37,6 @@ E
 shouldISkateToday.sln,4\a\4ad469b902a7d8163a3ce263cd7af14e093fcd39
 \
 ,shouldISkateToday/Domain/Models/SkatePark.cs,b\7\b772fb6d445f38a2e4a2ffff21267f6551de1f20
-[
-+shouldISkateToday/Domain/Models/Geometry.cs,e\6\e6cc9bae2055136fb2a9ccdb03c6080ef8938b99
 W
 'shouldISkateTodayTests/appsettings.json,3\e\3e77140202ab82c6a566b1acbb5b6c14a2ec7458
 ^
@@ -49,8 +47,6 @@ e
 5shouldISkateToday/Services/Interfaces/IUserService.cs,5\6\561eb7a89bb75fb4a1b3996f4e804b7e6fa46646
 q
 AshouldISkateToday/Data/Repositories/Interfaces/IUserRepository.cs,5\f\5fb1454ab603cdb81be57eaf0b77e244cbc5653d
-W
-'shouldISkateToday/Domain/Models/User.cs,0\c\0c39b6a704e7ceef323074dff8da734af7c45fa2
 Q
 !shouldISkateToday/RefreshToken.cs,9\6\96405e448cb4954653e8c79d6c71bd14efce5e30
 `
@@ -72,8 +68,6 @@ q
 AshouldISkateToday/Clients/RequestInterface/IGoogleMapsRequests.cs,1\2\12d5bd6cb06c4c7ac6b735985ae6bf955f0881bf
 ]
 -shouldISkateToday/Extensions/JwtExtensions.cs,b\9\b94ab2a5a9d152a335f12ab36f723c831417f1ba
-d
-4shouldISkateTodayTests/shouldISkateTodayTests.csproj,f\3\f3956d722ce03bde4b6712369c2cfa41350053dd
 b
 2shouldISkateToday/Services/UserFavortieServices.cs,8\8\8879c5052819b5f25936e943f1aec91784cdb590
 j

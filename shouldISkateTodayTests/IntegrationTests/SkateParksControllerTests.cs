@@ -1,45 +1,68 @@
-﻿using System.Net;
-using System.Net.Http.Headers;
-using System.Text;
+﻿using System.Dynamic;
+using System.Net;
+using System.Web;
 using FluentAssertions;
-using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json;
-using shouldISkateToday.Data.Contexts;
-using shouldISkateToday.Domain.Dtos;
+using FluentAssertions.Execution;
 
-namespace shouldISkateTodayTests.IntegrationTests;
 
-public class SkateParksControllerTest : IClassFixture<SkateApiFactory>
+namespace shouldISkateTodayTests.IntegrationTests
 {
-    private readonly SkateApiFactory _factory;
-
-    public SkateParksControllerTest(SkateApiFactory factory)
+    public class SkateParksControllerTest : IClassFixture<SkateApiFactory>
     {
-        _factory = factory;
-    }
+        private readonly SkateApiFactory _factory;
 
-    [Fact]
-    public async Task Get_Returns_All_SkateParks()
-    {
-        var client = _factory.CreateDefaultClient();
-        var userToLogin = new UserDto
+        public SkateParksControllerTest(SkateApiFactory factory)
         {
-            Username = "monkeyDLuffy",
-            Password = "string"
-        };
+            _factory = factory;
+        }
 
-        await client.PostAsync("api/auth/register",
-            new StringContent(JsonConvert.SerializeObject(userToLogin), Encoding.UTF8, "application/json"));
+        private static dynamic GetAdminToken()
+        {
+            dynamic data = new ExpandoObject();
+            data.sub = "dca45f95-aee7-435e-83d3-3ca5f5a1af0e";
+            data.extension_UserRole = "Admin";
+            return data;
+        }
 
-        var login = await client.PostAsync("api/auth/login",
-            new StringContent(JsonConvert.SerializeObject(userToLogin), Encoding.UTF8, "application/json"));
-        var token = await login.Content.ReadAsStringAsync();
+        [Fact]
+        public async Task Get_Returns_All_SkateParks()
+        {
+            var data = GetAdminToken();
+            using var client = _factory.CreateDefaultClient();
+            client.SetFakeBearerToken((object) data);
 
-        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-        var response = await client.GetAsync("api/skatepark/skate-parks?spot=skateparksInRussia");
+            var query = HttpUtility.ParseQueryString(string.Empty);
+            query["spot"] = "Skate parks in Brazil";
+
+            var queryString = query.ToString();
+
+            var response = await client.GetAsync($"api/SkatePark/skate-parks?{queryString}");
 
 
-        // Assert
-        response.StatusCode.Should().Be(HttpStatusCode.OK);
+            // Assert
+            using (new AssertionScope())
+            {
+                response.StatusCode.Should().Be(HttpStatusCode.OK);
+                response.Content.Should().BeOfType<StreamContent>();
+                response.Content.Should().NotBeNull();
+            }
+        }
+
+        [Fact]
+        public async Task Should_Give_Unauthorized_If_User_Does_Not_Have_Token()
+        {
+            using var client = _factory.CreateDefaultClient();
+
+            var query = HttpUtility.ParseQueryString(string.Empty);
+            query["spot"] = "Skate parks in Brazil";
+
+            var queryString = query.ToString();
+
+            var response = await client.GetAsync($"api/SkatePark/skate-parks?{queryString}");
+
+
+            // Assert
+            response.StatusCode.Should().Be(HttpStatusCode.Unauthorized);
+        }
     }
 }
