@@ -1,13 +1,22 @@
 ﻿using LanguageExt.Common;
+using shouldISkateToday.Data.Repositories.Interfaces;
 using shouldISkateToday.Domain.Models;
 using shouldISkateToday.Services.Interfaces;
 
 namespace shouldISkateToday.Services;
 
-// TODO - update services an tests the endpoints
 public class UserFavoriteServices : IUserFavoritesService
 {
-    public Task<Result<UserFavorites>> GetUserFavoritesAsync(Guid userId, string favorites) => throw new NotImplementedException();
+    private readonly IUserFavoritesRepository _repository;
 
-    public Task<Result<bool>> UpsertUserFavoritesAsync(Guid userId, string favorites) => throw new NotImplementedException();
+    public UserFavoriteServices(IUserFavoritesRepository repository)
+    {
+        _repository = repository;
+    }
+
+    public async Task<Result<UserFavorites>> GetUserFavoritesAsync(Guid userId, string favorites) =>
+        await _repository.GetUserFavoritesAsync(userId, favorites);
+
+    public async Task<Result<bool>> UpsertUserFavoritesAsync(Guid userId, string favorites) =>
+        await _repository.UpsertUserFavoritesAsync(userId, favorites);
 }

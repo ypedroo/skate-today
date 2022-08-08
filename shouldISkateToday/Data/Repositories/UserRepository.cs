@@ -1,6 +1,5 @@
 ﻿using LanguageExt.Common;
 using Microsoft.EntityFrameworkCore;
-using Refit;
 using shouldISkateToday.Data.Contexts;
 using shouldISkateToday.Data.Repositories.Interfaces;
 using shouldISkateToday.Domain.Models;

@@ -19,6 +19,7 @@ public static class DependencyContainer
         services.AddTransient<IUserService, UserService>();
         services.AddTransient<IUserRepository, UserRepository>();
         services.AddTransient<IUserFavoritesService, UserFavoriteServices>();
+        services.AddTransient<IUserFavoritesRepository, UserFavoritesRepository>();
         services.AddControllers();
         services.AddEndpointsApiExplorer();
         services.AddMvc().AddJsonOptions(options => { options.JsonSerializerOptions.IncludeFields = true; });

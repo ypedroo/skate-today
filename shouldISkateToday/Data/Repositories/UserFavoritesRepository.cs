@@ -33,11 +33,18 @@ public class UserFavoritesRepository : IUserFavoritesRepository
     {
         try
         {
+            // TODO - Fix here
             var userFavorites = await _context.UserFavorites.FirstOrDefaultAsync(x => x.UserId == userId);
             if (userFavorites == null)
             {
-                var userNotFoundError = new ObjectNotFoundException("User does not exists");
-                return new Result<bool>(userNotFoundError);
+                var newUser = new UserFavorites
+                {
+                    Favorites = "",
+                    UserId = userId
+                };
+                await _context.UserFavorites.AddAsync(newUser);
+                await _context.SaveChangesAsync();
+                return new Result<bool>(true);
             }
 
             userFavorites.Favorites = favorites;
