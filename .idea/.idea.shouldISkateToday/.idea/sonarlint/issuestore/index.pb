@@ -27,22 +27,12 @@ Y
 )frontend/shouldISkateToday/vite.config.ts,8\2\822bbb32d4d2b21fb741ba69e506ee363e067ce7
 U
 %frontend/shouldISkateToday/.gitignore,3\3\33bfd81a0571c1daec4ae084eeab2b57d2d55d24
-]
--shouldISkateToday/Domain/Models/SkateParks.cs,f\5\f53ad9822abdfa580f9da791607b0b04bbe377a0
-[
-+shouldISkateToday/Domain/Models/Location.cs,d\1\d12b9dba34b2decbbf7fd5a592c64bf9ac0010b0
 E
 shouldISkateToday.sln,4\a\4ad469b902a7d8163a3ce263cd7af14e093fcd39
-\
-,shouldISkateToday/Domain/Models/SkatePark.cs,b\7\b772fb6d445f38a2e4a2ffff21267f6551de1f20
-e
-5shouldISkateToday/Services/Interfaces/IUserService.cs,5\6\561eb7a89bb75fb4a1b3996f4e804b7e6fa46646
 q
 AshouldISkateToday/Data/Repositories/Interfaces/IUserRepository.cs,5\f\5fb1454ab603cdb81be57eaf0b77e244cbc5653d
 Q
 !shouldISkateToday/RefreshToken.cs,9\6\96405e448cb4954653e8c79d6c71bd14efce5e30
-z
-JshouldISkateToday/Data/Repositories/Interfaces/IUserFavoritesRepository.cs,f\c\fc304d262b50dd86e72060ef6acddbc23e3765c3
 =
 .dockerignore,0\5\05a721ebe3ba0754116825ed1359ff1785f4bbac
 :
@@ -54,3 +44,21 @@ J
 -shouldISkateToday/Extensions/JwtExtensions.cs,b\9\b94ab2a5a9d152a335f12ab36f723c831417f1ba
 j
 :shouldISkateToday/Services/Interfaces/IGoogleMapService.cs,d\7\d7610fcbc73d9ba2b880a77e7e189fed3f041b0a
+9
+	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+R
+"shouldISkateToday/appsettings.json,1\1\11cbeeb62894944e562ccb9329ea71eed5610fb5
+`
+0shouldISkateToday/Properties/launchSettings.json,6\6\663b6191f8fe5611f5d79107a282b51d1c3da3ad
+q
+AshouldISkateToday/Clients/RequestInterface/IGoogleMapsRequests.cs,1\2\12d5bd6cb06c4c7ac6b735985ae6bf955f0881bf
+L
+shouldISkateToday/Program.cs,4\5\45ca074c35aea04102c976f01e5d1675ad03de1a
+d
+4shouldISkateToday/Controllers/SkateParkController.cs,4\c\4ca56169d75a53610b1d242ea54e3e55ff26b554
+e
+5shouldISkateToday/Data/Repositories/UserRepository.cs,f\1\f1db5d2619a308dd5ffb949876a76e8e035228ba
+^
+.shouldISkateToday/Infra/DependencyContainer.cs,e\3\e381bd468335aee7d2f522f727e35b8d37fc88bb
+[
++shouldISkateToday/Domain/Models/Location.cs,d\1\d12b9dba34b2decbbf7fd5a592c64bf9ac0010b0

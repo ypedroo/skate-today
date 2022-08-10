@@ -1,6 +1,6 @@
 ﻿using LanguageExt.Common;
 using shouldISkateToday.Data.Repositories.Interfaces;
-using shouldISkateToday.Domain.Models;
+using shouldISkateToday.Domain.Dtos;
 using shouldISkateToday.Services.Interfaces;
 
 namespace shouldISkateToday.Services;
@@ -14,8 +14,10 @@ public class UserFavoriteServices : IUserFavoritesService
         _repository = repository;
     }
 
-    public async Task<Result<UserFavorites>> GetUserFavoritesAsync(Guid userId, string favorites) =>
-        await _repository.GetUserFavoritesAsync(userId, favorites);
+    public async Task<Result<List<UserResponseDto>>> GetAllUsers() =>  await _repository.GetAllUsers();
+
+    public async Task<Result<UserFavoritesDto>> GetUserFavoritesAsync(Guid userId) =>
+        await _repository.GetUserFavoritesAsync(userId);
 
     public async Task<Result<bool>> UpsertUserFavoritesAsync(Guid userId, string favorites) =>
         await _repository.UpsertUserFavoritesAsync(userId, favorites);

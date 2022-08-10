@@ -17,10 +17,17 @@ public class UserFavoriteController : ControllerBase
         _service = service;
     }
 
-    [HttpGet]
-    public async Task<IActionResult> GetUserFavoritesAsync(Guid userId, string favorites)
+    [HttpGet ("GetUsers")]
+    public async Task<IActionResult> GetAllUsers()
     {
-        var result = await _service.GetUserFavoritesAsync(userId, favorites);
+        var result = await _service.GetAllUsers();
+        return result.ToOk(response => response);
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> GetUserFavoritesAsync(Guid userId)
+    {
+        var result = await _service.GetUserFavoritesAsync(userId);
         return result.ToOk(response => response);
     }
 

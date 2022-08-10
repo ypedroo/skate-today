@@ -1,8 +1,9 @@
-﻿using System.Data.Entity.Core;
-using LanguageExt.Common;
+﻿using LanguageExt.Common;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using shouldISkateToday.Data.Contexts;
 using shouldISkateToday.Data.Repositories.Interfaces;
+using shouldISkateToday.Domain.Dtos;
 using shouldISkateToday.Domain.Models;
 
 namespace shouldISkateToday.Data.Repositories;
@@ -16,16 +17,49 @@ public class UserFavoritesRepository : IUserFavoritesRepository
         _context = context;
     }
 
-    public async Task<Result<UserFavorites>> GetUserFavoritesAsync(Guid userId, string favorites)
+    public async Task<Result<List<UserResponseDto>>> GetAllUsers()
+    {
+        try
+        {
+            var userFavorites = await _context.Users.ToListAsync();
+            var userFavoritesDto = userFavorites.Select(x => new UserResponseDto
+            {
+                UserId = x.Id,
+                UserName = x.UserName,
+                RefreshTokenExpires = x.RefreshTokenExpires
+
+
+            }).ToList();
+            return new Result<List<UserResponseDto>>(userFavoritesDto);
+        }
+        catch (Exception exception)
+        {
+            return new Result<List<UserResponseDto>>(exception);
+        }
+    }
+
+    public async Task<Result<UserFavoritesDto>> GetUserFavoritesAsync(Guid userId)
     {
         try
         {
             var userFavorites = await _context.UserFavorites.FirstOrDefaultAsync(x => x.UserId == userId);
-            return new Result<UserFavorites>(userFavorites ?? new UserFavorites());
+            if (userFavorites == null)
+            {
+                var error = new KeyNotFoundException();
+                return new Result<UserFavoritesDto>(error);
+            }
+
+            var user = new UserFavoritesDto
+            {
+                UserId = userFavorites.UserId,
+                Favorites = JsonConvert.DeserializeObject<SkateParks>(userFavorites.Favorites)
+            };
+            
+            return new Result<UserFavoritesDto>(user);
         }
         catch (Exception exception)
         {
-            return new Result<UserFavorites>(exception);
+            return new Result<UserFavoritesDto>(exception);
         }
     }
 
@@ -33,7 +67,6 @@ public class UserFavoritesRepository : IUserFavoritesRepository
     {
         try
         {
-            // TODO - Fix here
             var userFavorites = await _context.UserFavorites.FirstOrDefaultAsync(x => x.UserId == userId);
             if (userFavorites == null)
             {

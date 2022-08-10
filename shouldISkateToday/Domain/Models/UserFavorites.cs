@@ -6,5 +6,5 @@ public class UserFavorites
 {
     [Key]
     public Guid UserId { get; set; }
-    public string? Favorites { get; set; }
+    public string Favorites { get; set; }
 }
