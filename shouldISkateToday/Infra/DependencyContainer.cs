@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using FluentValidation.AspNetCore;
+using Microsoft.EntityFrameworkCore;
 using Refit;
 using shouldISkateToday.Clients.RequestInterface;
 using shouldISkateToday.Data.Contexts;
@@ -31,6 +32,11 @@ public static class DependencyContainer
         services.AddDbContext<UserContext>(options =>
             options.UseNpgsql(connectionString)
         );
+        services.AddFluentValidation(conf =>
+        {
+            conf.RegisterValidatorsFromAssemblyContaining<Program>();
+            conf.AutomaticValidationEnabled = false;
+        });
         return services;
     }
 }

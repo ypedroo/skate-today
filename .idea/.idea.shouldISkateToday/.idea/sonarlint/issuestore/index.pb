@@ -42,8 +42,6 @@ J
 .github/workflows/main.yml,c\7\c778226b6c4c0fb51cf7942c8ee1f3d9fc1249d0
 ]
 -shouldISkateToday/Extensions/JwtExtensions.cs,b\9\b94ab2a5a9d152a335f12ab36f723c831417f1ba
-j
-:shouldISkateToday/Services/Interfaces/IGoogleMapService.cs,d\7\d7610fcbc73d9ba2b880a77e7e189fed3f041b0a
 9
 	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 R
@@ -54,11 +52,23 @@ q
 AshouldISkateToday/Clients/RequestInterface/IGoogleMapsRequests.cs,1\2\12d5bd6cb06c4c7ac6b735985ae6bf955f0881bf
 L
 shouldISkateToday/Program.cs,4\5\45ca074c35aea04102c976f01e5d1675ad03de1a
-d
-4shouldISkateToday/Controllers/SkateParkController.cs,4\c\4ca56169d75a53610b1d242ea54e3e55ff26b554
 e
 5shouldISkateToday/Data/Repositories/UserRepository.cs,f\1\f1db5d2619a308dd5ffb949876a76e8e035228ba
-^
-.shouldISkateToday/Infra/DependencyContainer.cs,e\3\e381bd468335aee7d2f522f727e35b8d37fc88bb
 [
 +shouldISkateToday/Domain/Models/Location.cs,d\1\d12b9dba34b2decbbf7fd5a592c64bf9ac0010b0
+]
+-shouldISkateToday/Domain/Models/SkateParks.cs,f\5\f53ad9822abdfa580f9da791607b0b04bbe377a0
+Y
+)shouldISkateToday/Services/UserService.cs,5\a\5a8c4e6f5c589b9408d0a1025bd868a9c036bc8a
+e
+5shouldISkateToday/Services/Interfaces/IUserService.cs,5\6\561eb7a89bb75fb4a1b3996f4e804b7e6fa46646
+`
+0shouldISkateToday/Domain/Dtos/UserResponseDto.cs,1\8\18c6f14f39560161b265d2600e9cf7cd98dc1055
+`
+0shouldISkateToday/Domain/Models/UserFavorites.cs,0\3\037dd7cc53c9cfdfff99f46c053a976f16b32245
+\
+,shouldISkateToday/Domain/Models/SkatePark.cs,b\7\b772fb6d445f38a2e4a2ffff21267f6551de1f20
+[
++shouldISkateToday/Domain/Models/Geometry.cs,e\6\e6cc9bae2055136fb2a9ccdb03c6080ef8938b99
+a
+1shouldISkateToday/Domain/Dtos/UserFavoritesDto.cs,0\e\0e1a85e6aa7c2316c958c1471960b7139aaf81de

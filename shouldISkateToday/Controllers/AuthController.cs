@@ -1,6 +1,8 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using FluentValidation;
+using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using shouldISkateToday.Domain.Dtos;
@@ -16,17 +18,28 @@ public class AuthController : ControllerBase
 {
     private readonly IConfiguration _configuration;
     private readonly IUserService _service;
+    private readonly IValidator<UserDto> _validator;
 
 
-    public AuthController(IConfiguration configuration, IUserService service)
+    public AuthController(IConfiguration configuration, IUserService service, IValidator<UserDto> validator)
     {
         _configuration = configuration;
         _service = service;
+        _validator = validator;
     }
 
     [HttpPost("register")]
     public async Task<ActionResult<User>> Register(UserDto request)
     {
+        var validation = await _validator.ValidateAsync(request);
+        if (!validation.IsValid)
+        {
+            return BadRequest(new ValidationResult
+            {
+                Errors = validation.Errors
+            });
+        }
+
         var newUser = new User();
         JwtExtensions.CreatePasswordHash(request.Password, out byte[] passwordHash, out byte[] passwordSalt);
         newUser.UserName = request.Username;
