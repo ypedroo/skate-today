@@ -3,31 +3,26 @@ using System.Net;
 using System.Web;
 using FluentAssertions;
 using FluentAssertions.Execution;
+using shouldISkateTodayTests.Helpers;
 
 
 namespace shouldISkateTodayTests.IntegrationTests
 {
-    public class SkateParksControllerTest : IClassFixture<SkateApiFactory>
+    public class SkateParksIntegrationTests : IClassFixture<SkateApiFactory>
     {
         private readonly SkateApiFactory _factory;
 
-        public SkateParksControllerTest(SkateApiFactory factory)
+        public SkateParksIntegrationTests(SkateApiFactory factory)
         {
             _factory = factory;
         }
 
-        private static dynamic GetAdminToken()
-        {
-            dynamic data = new ExpandoObject();
-            data.sub = "dca45f95-aee7-435e-83d3-3ca5f5a1af0e";
-            data.extension_UserRole = "Admin";
-            return data;
-        }
+        
 
         [Fact]
         public async Task Get_Returns_All_SkateParks()
         {
-            var data = GetAdminToken();
+            var data = IntegrationTestsHelper.GetAdminToken();
             using var client = _factory.CreateDefaultClient();
             client.SetFakeBearerToken((object) data);
 
