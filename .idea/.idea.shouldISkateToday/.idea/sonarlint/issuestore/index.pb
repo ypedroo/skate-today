@@ -70,5 +70,3 @@ e
 +shouldISkateToday/Domain/Models/Geometry.cs,e\6\e6cc9bae2055136fb2a9ccdb03c6080ef8938b99
 a
 1shouldISkateToday/Domain/Dtos/UserFavoritesDto.cs,0\e\0e1a85e6aa7c2316c958c1471960b7139aaf81de
-Z
-*shouldISkateToday/shouldISkateToday.csproj,2\0\2055d55d534fa6700a6c32b4b55ddfd2f76701fc
