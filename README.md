@@ -1,5 +1,5 @@
 # skate-today
-![example workflow](https://github.com/ypedroo/skate-today/actions/workflows/main.yml/badge.svg)
+[![Build and deploy ASP.Net Core app to Azure Web App - skate-today](https://github.com/ypedroo/skate-today/actions/workflows/main_skate-today.yml/badge.svg)](https://github.com/ypedroo/skate-today/actions/workflows/main_skate-today.yml)
 
 # Introduction
 Skate today is a demo app that returns a list of skateparks in the city of user preference, it main purpose is for study so this demo contains usage of libs like refit for maps integrations, unit and integration tests, JWT authentication, Language EXT error handling and more.
