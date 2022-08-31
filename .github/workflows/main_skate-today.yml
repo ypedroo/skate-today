@@ -26,7 +26,7 @@ jobs:
         run: dotnet restore
 
       - name: Build with dotnet
-        run: dotnet build --configuration Release
+        run: dotnet build --configuration Release --no-restore
         
       - name: Test with dotnet
         run: dotnet test -c Release --no-build --verbosity normal --filter "Category!=LongRunning"
