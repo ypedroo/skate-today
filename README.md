@@ -8,7 +8,7 @@ All keys in appsettings are revoked, so feel free to use your own keys.
 # Features
 * Functional User creation and authentication with JWT.
 * Endpoint to get skateparks within certain city.
-* CI/CD with GitHub Actions deploying to Heroku.
+* CI/CD with GitHub Actions deploying to Azure.
 * Unit and integration tests with test containers.
 * Language EXT error handling.
 ## To be added
@@ -24,7 +24,7 @@ This project is licensed under the MIT License.
 Feel free to contribute!
 
 # Swagger Documentation
-https://should-i-skate-today.herokuapp.com/swagger/index.html
+[https://should-i-skate-today.herokuapp.com/swagger/index.html](https://skate-today.azurewebsites.net/swagger/index.html)
 
 Thanks for reading!
 Made with:
