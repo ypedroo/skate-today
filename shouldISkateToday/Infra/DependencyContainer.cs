@@ -28,9 +28,9 @@ public static class DependencyContainer
         {
             c.BaseAddress = new Uri(configuration.GetValue<string>("GOOGLE_MAPS_PLACE_URL"));
         });
-        var connectionString = configuration["dbContextSettings:ConnectionString"];
+        var connectionString = configuration["ConnectionStrings:AzureDbConnection"];
         services.AddDbContext<UserContext>(options =>
-            options.UseNpgsql(connectionString)
+            options.UseSqlServer(connectionString)
         );
         services.AddFluentValidation(conf =>
         {
