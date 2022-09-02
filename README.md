@@ -24,7 +24,7 @@ This project is licensed under the MIT License.
 Feel free to contribute!
 
 # Swagger Documentation
-[https://should-i-skate-today.herokuapp.com/swagger/index.html](https://skate-today.azurewebsites.net/swagger/index.html)
+[https://skate-today.azurewebsites.net/swagger/index.html](https://skate-today.azurewebsites.net/swagger/index.html)
 
 Thanks for reading!
 Made with:
