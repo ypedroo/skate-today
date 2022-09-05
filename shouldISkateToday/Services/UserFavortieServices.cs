@@ -19,6 +19,6 @@ public class UserFavoriteServices : IUserFavoritesService
     public async Task<Result<UserFavoritesDto>> GetUserFavoritesAsync(Guid userId) =>
         await _repository.GetUserFavoritesAsync(userId);
 
-    public async Task<Result<bool>> UpsertUserFavoritesAsync(Guid userId, string favorites) =>
+    public async Task<Result<bool>> UpsertUserFavoritesAsync(Guid userId, string? favorites) =>
         await _repository.UpsertUserFavoritesAsync(userId, favorites);
 }

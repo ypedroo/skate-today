@@ -32,7 +32,8 @@ E
 Q
 !shouldISkateToday/RefreshToken.cs,9\6\96405e448cb4954653e8c79d6c71bd14efce5e30
 =
-.dockerignore,0\5\05a721ebe3ba0754116825ed1359ff1785f4bbac
+
+.dockerignore,0\5\05a721ebe3ba0754116825ed1359ff1785f4bbac
 :
 
 Dockerfile,6\6\6651ddff6eb82c840ced7c1dddee15c6e1913dd4
@@ -46,14 +47,6 @@ q
 AshouldISkateToday/Clients/RequestInterface/IGoogleMapsRequests.cs,1\2\12d5bd6cb06c4c7ac6b735985ae6bf955f0881bf
 [
 +shouldISkateToday/Domain/Models/Location.cs,d\1\d12b9dba34b2decbbf7fd5a592c64bf9ac0010b0
-]
--shouldISkateToday/Domain/Models/SkateParks.cs,f\5\f53ad9822abdfa580f9da791607b0b04bbe377a0
-`
-0shouldISkateToday/Domain/Dtos/UserResponseDto.cs,1\8\18c6f14f39560161b265d2600e9cf7cd98dc1055
-\
-,shouldISkateToday/Domain/Models/SkatePark.cs,b\7\b772fb6d445f38a2e4a2ffff21267f6551de1f20
-[
-+shouldISkateToday/Domain/Models/Geometry.cs,e\6\e6cc9bae2055136fb2a9ccdb03c6080ef8938b99
 a
 1shouldISkateToday/Domain/Dtos/UserFavoritesDto.cs,0\e\0e1a85e6aa7c2316c958c1471960b7139aaf81de
 d
@@ -62,16 +55,6 @@ j
 :shouldISkateToday/Services/Interfaces/IGoogleMapService.cs,d\7\d7610fcbc73d9ba2b880a77e7e189fed3f041b0a
 X
 (shouldISkateToday/Domain/Dtos/UserDto.cs,f\0\f03de5662133a9a0bfe0ca94f5eb3059a65c8e70
-`
-0shouldISkateToday/Validators/UserDtoValidator.cs,f\a\fa171120633470aeb987833229666606c14df3ad
-g
-7shouldISkateToday/Controllers/UserFavoriteController.cs,0\9\099336e96d4fb295d22428484004fef51fdcd853
-h
-8shouldISkateTodayTests/Helpers/IntegrationTestsHelper.cs,4\7\4720f61fd38a048137e2b3ff43a825383a762c06
-`
-0shouldISkateToday/Domain/Models/UserFavorites.cs,0\3\037dd7cc53c9cfdfff99f46c053a976f16b32245
-x
-HshouldISkateTodayTests/IntegrationTests/UserFavoritesIntegrationTests.cs,b\3\b3267f15ecd40c9bef2bda9edf3afc6af1cb54c1
 n
 >shouldISkateToday/Data/Repositories/UserFavoritesRepository.cs,9\1\91234ee8a9c3c03ac7fcc30b245e94e7d876b205
 L

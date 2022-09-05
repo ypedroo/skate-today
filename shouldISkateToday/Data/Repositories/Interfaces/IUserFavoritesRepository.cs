@@ -7,6 +7,6 @@ public interface IUserFavoritesRepository
 {
     Task<Result<List<UserResponseDto>>> GetAllUsers();
     Task<Result<UserFavoritesDto>> GetUserFavoritesAsync(Guid userId);
-    Task<Result<bool>> UpsertUserFavoritesAsync (Guid userId, string favorites);
+    Task<Result<bool>> UpsertUserFavoritesAsync (Guid userId, string? favorites);
 
 }

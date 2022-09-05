@@ -32,7 +32,7 @@ public class UserFavoriteController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> UpsertUserFavoritesAsync(Guid userId, string favorites)
+    public async Task<IActionResult> UpsertUserFavoritesAsync(Guid userId, string? favorites)
     {
         var result = await _service.UpsertUserFavoritesAsync(userId, favorites);
         return result.ToCreated(response => response);

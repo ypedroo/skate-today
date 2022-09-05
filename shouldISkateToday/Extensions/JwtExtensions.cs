@@ -16,14 +16,14 @@ public static class JwtExtensions
         };
         return refreshToken;
     }
-    public static bool VerifyPasswordHash(string requestPassword, byte[] userPasswordHash, byte[] userPasswordSalt)
+    public static bool VerifyPasswordHash(string requestPassword, byte[]? userPasswordHash, byte[]? userPasswordSalt)
     {
         using var hmac = new HMACSHA512(userPasswordSalt);
         var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(requestPassword));
         return computedHash.SequenceEqual(userPasswordHash);
     }
     
-    public static void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
+    public static void CreatePasswordHash(string password, out byte[]? passwordHash, out byte[]? passwordSalt)
     {
         using var hmac = new HMACSHA512();
         passwordSalt = hmac.Key;

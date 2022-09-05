@@ -40,8 +40,14 @@ public class AuthController : ControllerBase
             });
         }
 
+        var validUser = await _service.GetUser(request);
+        if (!string.IsNullOrEmpty(validUser.UserName))
+        {
+            return BadRequest($"User already {request.Username} exists");
+        }
+
         var newUser = new User();
-        JwtExtensions.CreatePasswordHash(request.Password, out byte[] passwordHash, out byte[] passwordSalt);
+        JwtExtensions.CreatePasswordHash(request.Password, out byte[]? passwordHash, out byte[]? passwordSalt);
         newUser.UserName = request.Username;
         newUser.PasswordHash = passwordHash;
         newUser.PasswordSalt = passwordSalt;

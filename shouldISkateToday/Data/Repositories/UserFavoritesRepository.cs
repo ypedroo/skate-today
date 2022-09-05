@@ -63,7 +63,7 @@ public class UserFavoritesRepository : IUserFavoritesRepository
         }
     }
 
-    public async Task<Result<bool>> UpsertUserFavoritesAsync(Guid userId, string favorites)
+    public async Task<Result<bool>> UpsertUserFavoritesAsync(Guid userId, string? favorites)
     {
         try
         {
