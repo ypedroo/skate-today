@@ -15,16 +15,14 @@ namespace shouldISkateTodayTests;
 
 public class SkateApiFactory : WebApplicationFactory<Program>, IAsyncLifetime
 {
-    private readonly PostgreSqlTestcontainer _dbContainer = new TestcontainersBuilder<PostgreSqlTestcontainer>()
-        .WithDatabase(new PostgreSqlTestcontainerConfiguration
+    private readonly MsSqlTestcontainer _dbContainer = new TestcontainersBuilder<MsSqlTestcontainer>()
+        .WithDatabase(new MsSqlTestcontainerConfiguration
         {
-            Database = "postgres",
-            Username = "ypedro",
             Password = "ype.1400",
         })
+        .WithImage("mcr.microsoft.com/mssql/server:2022-latest")
         .WithCleanUp(true)
         .Build();
-
 
     protected override void ConfigureWebHost(IWebHostBuilder builder)
     {
@@ -36,7 +34,7 @@ public class SkateApiFactory : WebApplicationFactory<Program>, IAsyncLifetime
             services.AddAuthentication(FakeJwtBearerDefaults.AuthenticationScheme).AddFakeJwtBearer();
             services.AddSingleton(
                 _ => new DbContextOptionsBuilder<UserContext>()
-                    .UseNpgsql(_dbContainer.ConnectionString)
+                    .UseSqlServer(_dbContainer.ConnectionString)
                     .Options);
             var serviceProvider = services.BuildServiceProvider();
 
