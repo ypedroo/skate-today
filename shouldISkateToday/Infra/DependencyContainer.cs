@@ -26,7 +26,7 @@ public static class DependencyContainer
         services.AddMvc().AddJsonOptions(options => { options.JsonSerializerOptions.IncludeFields = true; });
         services.AddRefitClient<IGoogleMapsRequests>().ConfigureHttpClient(c =>
         {
-            c.BaseAddress = new Uri(configuration.GetValue<string>("GOOGLE_MAPS_PLACE_URL"));
+            c.BaseAddress = new Uri(configuration.GetValue<string>("GOOGLE_MAPS_PLACE_URL") ?? string.Empty);
         });
         var connectionString = configuration["ConnectionStrings:AzureDbConnection"];
         services.AddDbContext<UserContext>(options =>

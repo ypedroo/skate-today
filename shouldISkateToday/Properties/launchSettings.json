@@ -14,7 +14,10 @@
       "launchBrowser": false,
       "applicationUrl": "https://localhost:7252;http://localhost:5252",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "AllowedHosts": "*",
+        "GOOGLE_MAPS_PLACE_URL": "https://maps.googleapis.com/maps/api/place/textsearch",
+        "UrlWebAppTestes": "http://localhost:5000"
       }
     },
     "IIS Express": {

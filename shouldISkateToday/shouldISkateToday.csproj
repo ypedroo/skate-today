@@ -1,50 +1,57 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
     <PropertyGroup>
-        <TargetFramework>net6.0</TargetFramework>
+        <TargetFramework>net8.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
-      <UserSecretsId>f30b734b-3efb-486d-a0e6-da233bc6f23c</UserSecretsId>
-      <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-  </PropertyGroup>
+        <UserSecretsId>f30b734b-3efb-486d-a0e6-da233bc6f23c</UserSecretsId>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="EntityFramework" Version="6.4.4" />
-      <PackageReference Include="FluentValidation" Version="11.2.0" />
-      <PackageReference Include="FluentValidation.AspNetCore" Version="11.1.2" />
-      <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.1.0" />
-      <PackageReference Include="LanguageExt.Core" Version="4.2.9" />
-      <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.7" />
-      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.7" />
-      <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="6.0.7" />
-      <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.7">
-        <PrivateAssets>all</PrivateAssets>
-        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      </PackageReference>
-      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.5" />
-      <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.7">
-        <PrivateAssets>all</PrivateAssets>
-        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      </PackageReference>
-      <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="6.0.1" />
-      <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.21.0" />
-      <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-      <PackageReference Include="NuGet.CommandLine" Version="6.2.1">
-        <PrivateAssets>all</PrivateAssets>
-        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      </PackageReference>
-      <PackageReference Include="Polly" Version="7.2.3" />
-      <PackageReference Include="Refit" Version="6.3.2" />
-      <PackageReference Include="Refit.HttpClientFactory" Version="6.3.2" />
-      <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
-      <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="7.0.3" />
-      <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.4.0" />
-      <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.4.0" />
-      <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.4.0" />
-      <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.21.0" />
+        <PackageReference Include="EntityFramework" Version="6.4.4"/>
+        <PackageReference Include="FluentValidation" Version="11.8.1"/>
+        <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0"/>
+        <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.8.1"/>
+        <PackageReference Include="LanguageExt.Core" Version="4.4.7"/>
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.0"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="8.0.0"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.0">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="8.0.0"/>
+        <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="7.0.3"/>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
+        <PackageReference Include="NuGet.CommandLine" Version="6.8.0">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Polly" Version="8.2.0"/>
+        <PackageReference Include="Refit" Version="7.0.0"/>
+        <PackageReference Include="Refit.HttpClientFactory" Version="7.0.0"/>
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0"/>
+        <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="7.0.12"/>
+        <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.5.0"/>
+        <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.5.0"/>
+        <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.5.0"/>
+        <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.0.3"/>
     </ItemGroup>
-  <ItemGroup>
-    <InternalsVisibleTo Include="shouldISkateTodayTests" />
-  </ItemGroup>
+    <ItemGroup>
+        <InternalsVisibleTo Include="shouldISkateTodayTests"/>
+    </ItemGroup>
+    <ItemGroup>
+        <_ContentIncludedByDefault Remove="shouldISkateToday.ServiceDefaults\obj\project.assets.json"/>
+        <_ContentIncludedByDefault Remove="shouldISkateToday.ServiceDefaults\obj\shouldISkateToday.ServiceDefaults.csproj.nuget.dgspec.json"/>
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\skate-today.ServiceDefaults\skate-today.ServiceDefaults.csproj"/>
+    </ItemGroup>
 
 </Project>
