@@ -29,7 +29,10 @@ jobs:
 
       - name: Install .NET Aspire workload
         run: dotnet workload install aspire
-
+        
+      - name: Test with dotnet
+        run: dotnet test -c Release --no-build --verbosity normal --filter "Category!=LongRunning"
+        
       - name: Log in with Azure (Federated Credentials)
         if: ${{ env.AZURE_CLIENT_ID != '' }}
         run: |
