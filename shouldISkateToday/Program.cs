@@ -20,7 +20,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateAudience = false,
             IssuerSigningKey =
                 new SymmetricSecurityKey(
-                    Encoding.UTF8.GetBytes(builder.Configuration.GetSection("AppSettings:Token").Value))
+                    Encoding.UTF8.GetBytes(builder.Configuration.GetSection("token").Value))
         };
     });
 builder.Services.AddSwaggerGen(options =>

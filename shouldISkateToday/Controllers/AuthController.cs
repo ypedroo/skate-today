@@ -119,7 +119,7 @@ public class AuthController : ControllerBase
         var key = new SymmetricSecurityKey(
             Encoding.UTF8.GetBytes(_configuration.GetSection("token").Value));
 
-        var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
+        var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256Signature);
 
         var token = new JwtSecurityToken(
             issuer: "shouldISkateToday",
