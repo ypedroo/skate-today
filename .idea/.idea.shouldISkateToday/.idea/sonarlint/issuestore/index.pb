@@ -75,3 +75,14 @@ b
 2skate-today.AppHost/Properties/launchSettings.json,c/3/c3426a74d7c77e67807b60a97fa0d12e9cb48d42
 q
 A.idea/.idea.shouldISkateToday/.idea/sonarlint/issuestore/index.pb,0/e/0e79e61ddf592efceb683e3bd2fcc76a3b73ac14
+^
+.shouldISkateToday/Data/Contexts/UserContext.cs,5/b/5baff07104819dd07bd0978ffa2d8791e13a52e0
+V
+&.github/workflows/main_skate-today.yml,6/1/614e577b615967ef3b242987d8bb98e566634958
+]
+-.github/workflows/main_skate-today-legacy.yml,e/b/eb863c01f1983ae1381c4a4c5ee24573e3e0b43d
+:
+
+azure.yaml,2/8/288b7adb4aeb59a01edfc9eacec4c840eeccbd64
+=
+next-steps.md,5/3/53c8054f3c23804734cbd668565827bf4be0e011

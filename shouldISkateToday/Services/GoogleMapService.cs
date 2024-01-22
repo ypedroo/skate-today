@@ -14,7 +14,7 @@ public class GoogleMapService : IGoogleMapService
     public GoogleMapService(IGoogleMapsRequests request, IConfiguration configuration)
     {
         _request = request;
-        _apiKey = configuration.GetValue<string>("GOOGLE_MAPS_API_KEY") ?? string.Empty;
+        _apiKey = configuration.GetValue<string>("google-maps-api-key") ?? string.Empty;
     }
 
     public async Task<Result<SkateParks>> GetSkateParks(string? spot)
