@@ -7,7 +7,6 @@ using shouldISkateToday.Infra;
 using Swashbuckle.AspNetCore.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.AddServiceDefaults();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.RegisterDependencies(builder.Configuration);
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -40,7 +39,6 @@ builder.Configuration.AddEnvironmentVariables()
     .AddUserSecrets(Assembly.GetExecutingAssembly(), true);
 
 var app = builder.Build();
-app.MapDefaultEndpoints();
 
 app.UseSwagger();
 app.UseSwaggerUI(options => { options.SwaggerEndpoint("/swagger/v1/swagger.json", "ShouldISkateToday v1"); });

@@ -51,8 +51,5 @@
         <_ContentIncludedByDefault Remove="shouldISkateToday.ServiceDefaults\obj\project.assets.json"/>
         <_ContentIncludedByDefault Remove="shouldISkateToday.ServiceDefaults\obj\shouldISkateToday.ServiceDefaults.csproj.nuget.dgspec.json"/>
     </ItemGroup>
-    <ItemGroup>
-        <ProjectReference Include="..\skate-today.ServiceDefaults\skate-today.ServiceDefaults.csproj"/>
-    </ItemGroup>
 
 </Project>
