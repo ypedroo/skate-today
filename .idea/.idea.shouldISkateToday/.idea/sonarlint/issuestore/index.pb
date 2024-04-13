@@ -65,9 +65,6 @@ A.idea/.idea.shouldISkateToday/.idea/sonarlint/issuestore/index.pb,0/e/0e79e61d
 .shouldISkateToday/Data/Contexts/UserContext.cs,5/b/5baff07104819dd07bd0978ffa2d8791e13a52e0
 V
 &.github/workflows/main_skate-today.yml,6/1/614e577b615967ef3b242987d8bb98e566634958
-:
-
-azure.yaml,2/8/288b7adb4aeb59a01edfc9eacec4c840eeccbd64
 =
 next-steps.md,5/3/53c8054f3c23804734cbd668565827bf4be0e011
 h
@@ -79,3 +76,9 @@ h
 e.idea/.idea.shouldISkateToday/.idea/sonarlint/issuestore/7/a/7a36aa8a27a4249344cd9e150a986f17cef69996,0/e/0eb761c4768552191bdb1f490b4a4bd94b563a33
 {
 K.idea/.idea.shouldISkateToday/.idea/sonarlint/securityhotspotstore/index.pb,d/8/d8c9f5144c23198007c4642fb24302e3aca6a515
+Y
+)shouldISkateToday/Services/UserService.cs,5/a/5a8c4e6f5c589b9408d0a1025bd868a9c036bc8a
+e
+5shouldISkateToday/Data/Repositories/UserRepository.cs,f/1/f1db5d2619a308dd5ffb949876a76e8e035228ba
+•
+e.idea/.idea.shouldISkateToday/.idea/sonarlint/issuestore/4/5/45ca074c35aea04102c976f01e5d1675ad03de1a,d/8/d8823479efbc4a6b7e8315c480d4e5a394a95412
