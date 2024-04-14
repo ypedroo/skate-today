@@ -28,7 +28,7 @@ public static class DependencyContainer
         {
             c.BaseAddress = new Uri(configuration.GetValue<string>("GOOGLE_MAPS_PLACE_URL") ?? string.Empty);
         });
-        var connectionString = configuration["azure-db-connection"];
+        var connectionString = configuration.GetValue<string>("azure-db-connection");
         services.AddDbContext<UserContext>(options =>
             options.UseSqlServer(connectionString)
         );
