@@ -18,7 +18,7 @@ public static class JwtExtensions
     }
     public static bool VerifyPasswordHash(string requestPassword, byte[]? userPasswordHash, byte[]? userPasswordSalt)
     {
-        using var hmac = new HMACSHA256(userPasswordSalt);
+        using var hmac = new HMACSHA512(userPasswordSalt);
         var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(requestPassword));
         return computedHash.SequenceEqual(userPasswordHash);
     }
