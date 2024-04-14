@@ -111,26 +111,34 @@ public class AuthController : ControllerBase
 
     private string GenerateAdminToken(User user)
     {
-        var claims = new List<Claim>
+        try
         {
-            new(ClaimTypes.Name, user.UserName),
-            new(ClaimTypes.Role, "Admin"),
-        };
-        var key = new SymmetricSecurityKey(
-            Encoding.UTF8.GetBytes(_configuration.GetSection("token").Value));
+            var claims = new List<Claim>
+            {
+                new(ClaimTypes.Name, user.UserName),
+                new(ClaimTypes.Role, "Admin"),
+            };
+            var key = new SymmetricSecurityKey(
+                Encoding.UTF8.GetBytes(_configuration.GetSection("token").Value));
 
-        var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256Signature);
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256Signature);
 
-        var token = new JwtSecurityToken(
-            issuer: "shouldISkateToday",
-            audience: "shouldISkateToday",
-            claims: claims,
-            expires: DateTime.Now.AddMinutes(30),
-            signingCredentials: creds
-        );
+            var token = new JwtSecurityToken(
+                issuer: "shouldISkateToday",
+                audience: "shouldISkateToday",
+                claims: claims,
+                expires: DateTime.Now.AddMinutes(30),
+                signingCredentials: creds
+            );
 
-        var jwt = new JwtSecurityTokenHandler().WriteToken(token);
+            var jwt = new JwtSecurityTokenHandler().WriteToken(token);
 
-        return jwt;
+            return jwt;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
     }
 }
