@@ -19,13 +19,16 @@ public class AuthController : ControllerBase
     private readonly IConfiguration _configuration;
     private readonly IUserService _service;
     private readonly IValidator<UserDto> _validator;
+    private readonly ILogger<AuthController> _logger;
 
 
-    public AuthController(IConfiguration configuration, IUserService service, IValidator<UserDto> validator)
+    public AuthController(IConfiguration configuration, IUserService service, IValidator<UserDto> validator,
+        ILogger<AuthController> logger)
     {
         _configuration = configuration;
         _service = service;
         _validator = validator;
+        _logger = logger;
     }
 
     [HttpPost("register")]
@@ -69,7 +72,10 @@ public class AuthController : ControllerBase
         var token = GenerateAdminToken(validUser);
         var refreshToken = JwtExtensions.GenerateRefreshToken();
         await SetRefreshToken(refreshToken, validUser);
-        return JwtExtensions.VerifyPasswordHash(request.Password, validUser.PasswordHash, validUser.PasswordSalt)
+        var response =
+            JwtExtensions.VerifyPasswordHash(request.Password, validUser.PasswordHash, validUser.PasswordSalt);
+        _logger.LogInformation("User {User} logged in with {Response}", validUser.UserName, response);
+        return response
             ? Ok(token)
             : BadRequest("Wrong Password");
     }
@@ -130,13 +136,14 @@ public class AuthController : ControllerBase
                 expires: DateTime.Now.AddMinutes(30),
                 signingCredentials: creds
             );
-
+            _logger.LogInformation("Token generated: {Token}", token);
             var jwt = new JwtSecurityTokenHandler().WriteToken(token);
 
             return jwt;
         }
         catch (Exception e)
         {
+            _logger.LogError(e, "Error generating token");
             Console.WriteLine(e);
             throw;
         }
