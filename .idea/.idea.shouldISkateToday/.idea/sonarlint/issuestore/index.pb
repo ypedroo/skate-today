@@ -82,3 +82,9 @@ e
 5shouldISkateToday/Data/Repositories/UserRepository.cs,f/1/f1db5d2619a308dd5ffb949876a76e8e035228ba
 •
 e.idea/.idea.shouldISkateToday/.idea/sonarlint/issuestore/4/5/45ca074c35aea04102c976f01e5d1675ad03de1a,d/8/d8823479efbc4a6b7e8315c480d4e5a394a95412
+q
+AshouldISkateToday/Data/Repositories/Interfaces/IUserRepository.cs,5/f/5fb1454ab603cdb81be57eaf0b77e244cbc5653d
+e
+5shouldISkateToday/Services/Interfaces/IUserService.cs,5/6/561eb7a89bb75fb4a1b3996f4e804b7e6fa46646
+`
+0shouldISkateToday/Domain/Models/UserFavorites.cs,0/3/037dd7cc53c9cfdfff99f46c053a976f16b32245

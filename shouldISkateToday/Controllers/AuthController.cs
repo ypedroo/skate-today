@@ -32,7 +32,7 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost("register")]
-    public async Task<ActionResult<User>> Register(UserDto request)
+    public async Task<IActionResult> Register(UserDto request)
     {
         var validation = await _validator.ValidateAsync(request);
         if (!validation.IsValid)
@@ -56,8 +56,8 @@ public class AuthController : ControllerBase
         newUser.PasswordSalt = passwordSalt;
 
         var user = await _service.AddUser(newUser);
-
-        return Ok(user);
+       
+        return user.ToOk(response => response);
     }
 
     [HttpPost("login")]

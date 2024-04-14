@@ -20,7 +20,7 @@ public static class ControllerExtension
                 ApiException => new StatusCodeResult(403),
                 BadHttpRequestException => new StatusCodeResult(422),
                 KeyNotFoundException => new StatusCodeResult(404),
-                _ => new StatusCodeResult(500)
+                _ => new BadRequestObjectResult(exception.Message)
             };
         });
     } 
