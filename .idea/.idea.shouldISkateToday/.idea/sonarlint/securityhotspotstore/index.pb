@@ -88,3 +88,15 @@ e
 5shouldISkateToday/Services/Interfaces/IUserService.cs,5/6/561eb7a89bb75fb4a1b3996f4e804b7e6fa46646
 `
 0shouldISkateToday/Domain/Models/UserFavorites.cs,0/3/037dd7cc53c9cfdfff99f46c053a976f16b32245
+g
+7shouldISkateToday/Controllers/UserFavoriteController.cs,0/9/099336e96d4fb295d22428484004fef51fdcd853
+\
+,frontend/shouldISkateToday/src/vite-env.d.ts,c/6/c61defc5a7f5ac21f5c244f96a3a144582939a73
+V
+&frontend/shouldISkateToday/src/App.tsx,6/c/6ce157809fbbe75cbba09d2d09f2a638b255d3d1
+B
+.azure/config.json,5/f/5fe070c0a187a1bc9686c23cd17479b21aa1281a
+M
+.azure/production/config.json,e/8/e8925b56cde750a2dfc0e961010a73550fdfe522
+F
+.azure/production/.env,1/8/186c87a0348361b5ed8e0be2f090bbc853a7b3d7
