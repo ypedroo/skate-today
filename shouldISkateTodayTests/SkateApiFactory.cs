@@ -17,7 +17,7 @@ public class SkateApiFactory : WebApplicationFactory<Program>, IAsyncLifetime
     private readonly MsSqlContainer _dbContainer = new MsSqlBuilder()
         .WithImage("mcr.microsoft.com/mssql/server:2022-latest")
         .WithPassword("ype.1400")
-        .WithPortBinding("1433")
+        .WithPortBinding(1433, true)
         .WithCleanUp(true)
         .Build();
 
