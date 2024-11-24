@@ -7,6 +7,7 @@ namespace shouldISkateToday.Services.Interfaces;
 public interface IUserService
 {
      Task<User> GetUser(UserDto request);
+     Task<Result<User>> GetUserByUserName(string userName);
      Task<Result<User>> AddUser(User user);
      Task<Result<string>> UpdateUserRefreshTokenUpdateUserRefreshToken(User validUser);
 }

@@ -32,6 +32,19 @@ public class UserService : IUserService
         return validUser;
     }
 
+    public async Task<Result<User>> GetUserByUserName(string username)
+    {
+        var user = await _dbContext.GetUser(username);
+        var validUser = new User();
+        user.IfSucc(userFound =>
+        {
+            validUser.Id = userFound.Id;
+            validUser.UserName = userFound.UserName;
+        });
+        return validUser;
+    }
+
+
     public async Task<Result<User>> AddUser(User user) => await _dbContext.AddUser(user);
 
 

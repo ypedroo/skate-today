@@ -79,8 +79,7 @@ public class AuthController : ControllerBase
             ? Ok(token)
             : BadRequest("Wrong Password");
     }
-
-
+    
     [HttpPost("refresh-token")]
     public async Task<ActionResult<string>> RefreshToken(UserDto request)
     {

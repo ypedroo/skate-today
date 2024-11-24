@@ -11,16 +11,25 @@ namespace shouldISkateToday.Controllers;
 public class UserFavoriteController : ControllerBase
 {
     private readonly IUserFavoritesService _service;
+    private readonly IUserService _userService;
 
-    public UserFavoriteController(IUserFavoritesService service)
+    public UserFavoriteController(IUserFavoritesService service, IUserService userService)
     {
         _service = service;
+        _userService = userService;
     }
 
     [HttpGet ("GetUsers")]
     public async Task<IActionResult> GetAllUsers()
     {
         var result = await _service.GetAllUsers();
+        return result.ToOk(response => response);
+    }
+    
+    [HttpGet("{userName}")]
+    public async Task<IActionResult> GetUserByNameAsync(string userName)
+    {
+        var result = await _userService.GetUserByUserName(userName);
         return result.ToOk(response => response);
     }
 
