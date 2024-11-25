@@ -52,7 +52,7 @@ public class UserFavoritesRepository : IUserFavoritesRepository
             var user = new UserFavoritesDto
             {
                 UserId = userFavorites.UserId,
-                Favorites = JsonConvert.DeserializeObject<SkateParks>(userFavorites.Favorites)
+                Favorites = userFavorites.Favorites
             };
             
             return new Result<UserFavoritesDto>(user);
@@ -72,7 +72,7 @@ public class UserFavoritesRepository : IUserFavoritesRepository
             {
                 var newUser = new UserFavorites
                 {
-                    Favorites = "",
+                    Favorites = favorites,
                     UserId = userId
                 };
                 await _context.UserFavorites.AddAsync(newUser);
