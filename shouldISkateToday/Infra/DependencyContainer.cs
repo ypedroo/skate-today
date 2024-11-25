@@ -30,7 +30,10 @@ public static class DependencyContainer
         });
         var connectionString = configuration.GetValue<string>("azure-db-connection");
         services.AddDbContext<UserContext>(options =>
-            options.UseSqlServer(connectionString)
+            options.UseSqlServer(connectionString, sqlOptions =>
+            {
+                sqlOptions.CommandTimeout(180);
+            })
         );
         services.AddFluentValidation(conf =>
         {
